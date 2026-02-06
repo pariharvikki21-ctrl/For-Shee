@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Bhumii 💖</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(to right,#ff9a9e,#fad0c4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Comic Sans MS', cursive;
+}
+.box{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:360px;
+    max-width:90%;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    animation:fade 0.8s ease;
+}
+@keyframes fade{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes zoom{
+    from{opacity:0; transform:scale(0.7);}
+    to{opacity:1; transform:scale(1);}
+}
+@keyframes slide{
+    from{opacity:0; transform:translateX(-40px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+h1{ color:#ff4d6d; }
+p{ font-size:16px; color:#444; line-height:1.6; }
+
+.heart{
+    font-size:45px;
+    animation:beat 1s infinite;
+}
+@keyframes beat{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.3)}
+    100%{transform:scale(1)}
+}
+
+button{
+    margin-top:12px;
+    padding:10px 18px;
+    border:none;
+    border-radius:20px;
+    background:#ff4d6d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{ background:#e63950; }
+
+.buttons{
+    position:relative;
+    height:80px;
+    margin-top:15px;
+}
+#no{
+    background:#999;
+    position:absolute;
+    transition:all 0.05s linear;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="box">
+    <div class="heart">❤️</div>
+    <h1>Bhumii</h1>
+    <p>
+        Pata nahi ye baat kaise shuru karun,<br>
+        bas dil se kuch kehna tha 💕<br><br>
+        Aaj koi special din nahi hai,<br>
+        bas ek honest feeling hai jo aapse share karni thi.
+    </p>
+    <button onclick="introNext()">Next ➡️</button>
+</div>
+
+<script>
+const box = document.getElementById("box");
+
+/* INTRO → GIFTS */
+function introNext(){
+    box.className="box zoom";
+    box.innerHTML=`
+        <div class="heart">🎁</div>
+        <h1>Three Small Gifts</h1>
+        <p>
+            Ye gifts cheezein nahi hain 😍<br>
+            Ye meri feelings ke parts hain 💖<br>
+            Ek-ek karke open kijiye 🎁
+        </p>
+        <button onclick="gift1()">Open Gift 1 🎁</button>
+    `;
+}
+
+/* GIFT 1 */
+function gift1(){
+    box.className="box fade";
+    box.innerHTML=`
+        <div class="heart">❤️</div>
+        <h1>Gift 1 – My Feelings</h1>
+        <p>
+            Bhumii, jab se aap meri life mein aaye ho,<br>
+            cheezein thodi aur achhi lagne lagi hain 💕<br><br>
+            Aapki smile mere mood ko better bana deti hai
+            aur aapke saath baat karke ek alag hi sukoon milta hai ❤️
+        </p>
+        <button onclick="gift2()">Next ➡️</button>
+    `;
+}
+
+/* GIFT 2 */
+function gift2(){
+    box.className="box slide";
+    box.innerHTML=`
+        <div class="heart">🌹</div>
+        <h1>Gift 2 – My Promise</h1>
+        <p>
+            Ye ek simple promise hai 🤞<br><br>
+            Respect ka 🌸<br>
+            Support ka 💪<br>
+            Aur patience ka ⏳<br><br>
+            Bina pressure, bina force — bas honestly ❤️
+        </p>
+        <button onclick="gift3()">Next ➡️</button>
+    `;
+}
+
+/* GIFT 3 – FIXED VERSION */
+function gift3(){
+    box.className="box zoom";
+    box.innerHTML=`
+        <div class="heart">💖</div>
+        <h1>Gift 3 – From My Heart</h1>
+        <p>
+            Ye gift kisi cheez ka nahi hai 😊<br>
+            Ye bas ek feeling hai jo dil se aati hai 🤍<br><br>
+
+            Care jo naturally ho 🌸<br>
+            Samajhne ki koshish 💭<br>
+            Aur honesty jo kabhi fake na ho 🫶🏻<br><br>
+
+            Perfect hone ka promise nahi,<br>
+            par genuine rehne ka promise zaroor hai ❤️
+        </p>
+        <button onclick="proposal()">Next ➡️</button>
+    `;
+}
+
+/* PROPOSAL */
+function proposal(){
+    box.className="box fade";
+    box.innerHTML=`
+        <div class="heart">💍</div>
+        <h1>Bhumii</h1>
+        <p>
+            Itna sab kehne ke baad,<br>
+            main bas ek simple si baat poochna chahta hoon 💕
+        </p>
+
+        <p style="font-size:18px;">
+            Will you be my partner 🫶🏻🫂
+        </p>
+
+        <div class="buttons">
+            <button onclick="yes()">Yes 😍</button>
+            <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 🙈</button>
+        </div>
+    `;
+}
+
+/* YES */
+function yes(){
+    box.className="box zoom";
+    box.innerHTML=`
+        <div class="heart">🎉</div>
+        <h1>Thank You 💖</h1>
+        <p>
+            Jo bhi aapne feel kiya,<br>
+            uski main poori respect karta hoon 🤍<br><br>
+            Bas itna kehna tha —
+            maine ye dil se kaha ❤️
+        </p>
+    `;
+}
+
+/* NO BUTTON FAST */
+function moveNo(){
+    let noBtn=document.getElementById("no");
+    let parent=noBtn.parentElement;
+    noBtn.style.left=Math.random()*(parent.offsetWidth-noBtn.offsetWidth)+"px";
+    noBtn.style.top=Math.random()*(parent.offsetHeight-noBtn.offsetHeight)+"px";
+}
+</script>
+
+</body>
+</html>
